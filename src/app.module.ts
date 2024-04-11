@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({ isGlobal: true }),
     ClientsModule.register([
       {
-        name: 'createwams',
+        name: 'purchase',
         transport: Transport.RMQ,
         options: {
           urls: [
