@@ -5,11 +5,11 @@ import { Context } from 'vm';
 @Injectable()
 export class AppService {
   private logger = new Logger(AppService.name)
-  constructor(    @Inject('purchase') private clientPurchase: ClientProxy,) {}
+  constructor(@Inject('createwams') private clientPurchase: ClientProxy) { }
 
-  async publishToPurchase(payload: any) {
+  async publishToQueue(type: string, payload: any) {
     try {
-      this.clientPurchase.send('purchase', payload).toPromise()
+      this.clientPurchase.send(type, payload).toPromise()
       this.logger.log("Publish to Q")
     } catch (err) {
       this.logger.error(err)

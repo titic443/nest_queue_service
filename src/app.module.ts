@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({ isGlobal: true }),
     ClientsModule.register([
       {
-        name: 'purchase',
+        name: 'createwams',
         transport: Transport.RMQ,
         options: {
           urls: [
@@ -22,9 +22,10 @@ import { ConfigModule } from '@nestjs/config';
           persistent: true,
         },
       },
+
     ]),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

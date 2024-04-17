@@ -4,12 +4,17 @@ import { MessagePattern } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
 
   @Post('odoo/createwams')
-  createWams(@Body() body:any) {
-    this.appService.publishToPurchase(body)
+  createWams(@Body() body: any) {
+    this.appService.publishToQueue('purchase', body)
+  }
+
+  @Post('odoo/createwamsexpense')
+  createWamsEx(@Body() body: any) {
+    this.appService.publishToQueue('expense', body)
   }
 
 }
