@@ -12,7 +12,7 @@ export class AppController {
     this.appService.publishToQueue('purchase', body)
   }
 
-  @Post('odoo/createwamsexpense')
+  @Post('odoo/createwamsaccount')
   createWamsEx(@Body() body: any) {
     this.appService.publishToQueue('expense', body)
   }
